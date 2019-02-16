@@ -4,6 +4,7 @@
       <el-header>
         <AppHeader/>
       </el-header>
+      <Breadcrumb/>
       <el-main>
         <router-view/>
       </el-main>
@@ -15,9 +16,10 @@
 </template>
 <script>
 import AppHeader from "@/components/Layout/AppHeader.vue";
+import Breadcrumb from "@/components/Global/Breadcrumb";
 import AppFooter from "@/components/Layout/AppFooter.vue";
 export default {
-  components: { AppHeader, AppFooter }
+  components: { AppHeader, Breadcrumb, AppFooter }
 };
 </script>
 <style lang="scss">
@@ -28,18 +30,19 @@ body {
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
-.el-header, .el-footer {
+.el-header,
+.el-footer {
   background-color: #ffffff;
   border: 1px solid #d8dce5;
   line-height: 60px;
 }
 
 .el-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 </style>

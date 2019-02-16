@@ -5,8 +5,9 @@ import store from './store/index'
 import './registerServiceWorker'
 //UI Libraries
 import ElementUI from 'element-ui';
+import locale from 'element-ui/lib/locale/lang/es';
 import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 
 Vue.config.productionTip = false
 
