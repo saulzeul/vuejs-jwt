@@ -8,7 +8,7 @@
                 <el-button type="primary" icon="el-icon-search" size="small">Buscar</el-button>
             </el-col>
             <el-col :span="6" align="right">
-                <router-link to="/about"><el-button type="primary" size="small">Salir</el-button></router-link> 
+                <router-link to="/about"><el-button type="primary" size="small">Perfil</el-button></router-link> 
             </el-col>
         </el-row>
     </div>

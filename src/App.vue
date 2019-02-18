@@ -1,23 +1,28 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
-        <AppHeader/>
-      </el-header>
-      <el-main>
-        <router-view/>
-      </el-main>
-      <el-footer>
-        <AppFooter/>
-      </el-footer>
+              <el-aside width="200px;"  style="height:100vh;background-color: white;border-right: 1px solid #d8dce5;">
+          <AppAside/>
+        </el-aside>
+
+      <el-container>
+              <el-header>
+          <AppHeader/>
+        </el-header>
+        <el-container>
+          <el-main  style="height:91vh;">
+            <router-view/>
+          </el-main>
+        </el-container>
+      </el-container>
     </el-container>
   </div>
 </template>
 <script>
 import AppHeader from "@/components/Layout/AppHeader.vue";
-import AppFooter from "@/components/Layout/AppFooter.vue";
+import AppAside from "@/components/Layout/AppAside.vue";
 export default {
-  components: { AppHeader, AppFooter }
+  components: { AppHeader, AppAside }
 };
 </script>
 <style lang="scss">
