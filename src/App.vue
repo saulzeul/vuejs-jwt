@@ -4,7 +4,6 @@
       <el-header>
         <AppHeader/>
       </el-header>
-      <Breadcrumb/>
       <el-main>
         <router-view/>
       </el-main>
@@ -16,10 +15,9 @@
 </template>
 <script>
 import AppHeader from "@/components/Layout/AppHeader.vue";
-import Breadcrumb from "@/components/Global/Breadcrumb";
 import AppFooter from "@/components/Layout/AppFooter.vue";
 export default {
-  components: { AppHeader, Breadcrumb, AppFooter }
+  components: { AppHeader, AppFooter }
 };
 </script>
 <style lang="scss">
