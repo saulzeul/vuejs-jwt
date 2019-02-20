@@ -2,7 +2,7 @@
     <div>
         <el-row :gutter="10">
             <el-col :span="6">
-                <router-link to="/"><el-button type="primary" size="small" icon="el-icon-menu" circle ></el-button></router-link>                                 
+                <router-link to="/"><el-button type="primary" size="small" icon="el-icon-menu" @click="showAside" circle ></el-button></router-link>                                 
             </el-col>
             <el-col :span="12" align="middle">
                 <el-button type="primary" icon="el-icon-search" size="small">Buscar</el-button>
@@ -15,6 +15,10 @@
 </template>
 <script>
 export default {
-    
+    methods: {
+        showAside () {
+            this.$store.dispatch('showAside');
+        }
+    }
 }
 </script>

@@ -3,14 +3,12 @@
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      :collapse="isCollapse"
+      :collapse="collapse"
     >
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">Navigator One</span>
+          <span slot="title">Dashboard</span>
         </template>
         <el-menu-item-group>
           <span slot="title">Group One</span>
@@ -41,19 +39,14 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      isCollapse: true
     };
   },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
+  computed: {
+    ...mapGetters(["collapse"])
   }
 };
 </script>
