@@ -1,11 +1,13 @@
 <template>
   <div>
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item
-        v-for="(route, index) in $route.meta"
-        :to="route.path"
-        :key="index"
-      >{{ route.name }}</el-breadcrumb-item>
+      <transition-group enter-active-class="animated faster fadeInRight">
+        <el-breadcrumb-item
+          v-for="(route, index) in $route.meta"
+          :to="route.path"
+          :key="index"
+        >{{ route.name }}</el-breadcrumb-item>
+      </transition-group>
     </el-breadcrumb>
   </div>
 </template>
