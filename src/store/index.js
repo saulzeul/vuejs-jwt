@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ui from './ui';
+import ui from './modules/ui';
 
 Vue.use(Vuex)
 
