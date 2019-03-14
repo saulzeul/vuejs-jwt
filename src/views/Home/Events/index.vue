@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h2>Martes 2 de Marzo de 2019</h2>
+    <h2>{{ new Date | moment("LL") }}</h2>
     <div class="row">
       <div class="column" v-for="(evento, index) in eventos" :key="index">
-        <el-card shadow="never">{{ evento.name }}</el-card>
+        <el-card shadow="never">{{ evento.name }}
+          <router-link to="/home/events/1454">Una maquina</router-link>
+        </el-card>
       </div>
     </div>
     <router-view></router-view>

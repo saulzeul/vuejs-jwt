@@ -14,8 +14,10 @@
     "animate.css": "^3.7.0",
     "element-ui": "^2.5.4",
     "font-awesome": "^4.7.0",
+    "moment-timezone": "^0.5.23",
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.22",
+    "vue-moment": "^4.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
