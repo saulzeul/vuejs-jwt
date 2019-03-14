@@ -3,9 +3,9 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <transition-group enter-active-class="animated faster fadeInRight">
         <el-breadcrumb-item
-          v-for="(route, index) in $route.meta"
+          v-for="route in $route.meta"
           :to="route.path"
-          :key="index"
+          :key="route.id"
         >{{ route.name }}</el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>
