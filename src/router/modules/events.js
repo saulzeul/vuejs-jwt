@@ -4,20 +4,13 @@ const events = {
     path: '/home/events',
     name: 'events',
     component: Events,
-    meta: [
-        { id: 1, name: 'home', path: '/home' },
-        { id: 2, name: 'events', path: '/home/events' },
-    ],
+    meta: 'events',
     children: [
         {
             path: ':id',
             name: 'event',
             component: Event,
-            meta: [
-                { id: 1, name: 'home', path: '/home' },
-                { id: 2, name: 'events', path: '/home/events' },                             
-                { id: 3, name: 'events', path: '/home/events/:id' },
-            ]
+            meta: 'event'
         }
     ]
 }

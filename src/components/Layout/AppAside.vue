@@ -37,6 +37,15 @@ export default {
             { id: 4, name: "Profile", path: "/home/events" },
             { id: 5, name: "Users", path: "/home/proyects" },
           ]
+        },
+        {
+          id: 3,
+          name: "Maquinas",
+          path: "/machines",
+          submodules: [
+            { id: 6, name: "Tecasa01", path: "/machines/tecasa01"},
+            { id: 7, name: "Tecasa02", path: "/machines/tecasa02"}
+          ]
         }
       ]
     };

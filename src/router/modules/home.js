@@ -3,8 +3,6 @@ const home = {
     path: '/home',
     name: 'home',
     component: Home,
-    meta: [
-        { id: 1, name: 'home', path: '/home' },
-    ]
+    meta: 'home'
 }
 export default home
