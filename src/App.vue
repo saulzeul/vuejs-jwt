@@ -1,37 +1,33 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px;" style="height:100vh;background-color: white;border-right: 1px solid #d8dce5;"> 
-        <AppAside/>
-      </el-aside>
-      <el-container>
         <el-header>
           <AppHeader/>
         </el-header>
-        <el-container>
           <el-main style="height:91vh;">
             <breadcrumb/>
             <router-view/>
           </el-main>
-        </el-container>
-      </el-container>
+        <el-footer>
+          <AppFooter/>
+        </el-footer>
     </el-container>
   </div>
 </template>
 <script>
 import AppHeader from "@/components/Layout/AppHeader.vue";
-import AppAside from "@/components/Layout/AppAside.vue";
 import breadcrumb from "@/components/Global/Breadcrumb.vue";
+import AppFooter from "@/components/Layout/AppFooter.vue";
 export default {
-  components: { AppHeader, AppAside, breadcrumb }
+  components: { AppHeader,breadcrumb, AppFooter }
 };
 </script>
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 body {
   margin: 0px;
   background-color: #f0f2f5;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .el-header,
 .el-footer {

@@ -1,14 +1,14 @@
 <template>
     <div>
         <el-row :gutter="10">
-            <el-col :span="6">
-                <el-button type="primary" @click="showAside">MENU</el-button>                                 
-            </el-col>
-            <el-col :span="12" align="middle">
+            <el-col :span="14" align="left">
                 {{ empresa }}
             </el-col>
-            <el-col :span="6" align="right">
-                <router-link to="/home"><el-button type="danger" >SALIR</el-button></router-link> 
+            <el-col :span="10" align="right">
+                <el-row>
+                    <el-col :xs="12" :sm="19" :md="20" :lg="20" :xl="20" align="right"><el-button type="primary"><icon icon="bell"/></el-button></el-col>
+                    <el-col :xs="12" :sm="5" :md="4" :lg="4" :xl="4" align="right"><router-link to="/home"><el-button type="danger" ><icon icon="sign-out-alt"/></el-button></router-link> </el-col>
+                </el-row>
             </el-col>
         </el-row>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h2>This is a Home</h2>
-    <router-link to="/home/events">Evento</router-link>
+    <el-button type="primary">EDITAR PEDIDO</el-button>
+    <el-button type="success">COBRAR</el-button>
   </div>
 </template>
 
