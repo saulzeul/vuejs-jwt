@@ -5,6 +5,8 @@ import store from './store/index'
 import './registerServiceWorker'
 import './plugins/element-ui'
 import './plugins/font-awesome'
+import './plugins/moment'
+import './plugins/axios'
 Vue.config.productionTip = false
 
 new Vue({
