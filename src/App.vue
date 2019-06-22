@@ -5,7 +5,6 @@
           <AppHeader/>
         </el-header>
           <el-main style="height:91vh;">
-            <breadcrumb/>
             <router-view/>
           </el-main>
         <el-footer>
