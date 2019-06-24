@@ -19,10 +19,17 @@
         </el-button-group>
       </el-col>
     </el-row>
+    <el-row>
+      <el-col :span="4">
+        <Product/>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
+import Product from '@/components/Global/Product';
 export default {
+  components: { Product },
   name: "Orders"
 };
 </script>
