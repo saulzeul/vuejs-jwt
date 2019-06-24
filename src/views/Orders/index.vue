@@ -19,15 +19,21 @@
         </el-button-group>
       </el-col>
     </el-row>
-    <el-row>
-      <el-col :span="4">
+    <el-row :gutter="10" type="flex" justify="space-between">
+      <el-col :span="8">
         <Product/>
       </el-col>
+      <el-col :span="8">
+        <Product/>
+      </el-col>  
+      <el-col :span="8">
+        <Product/>
+      </el-col>       
     </el-row>
   </div>
 </template>
 <script>
-import Product from '@/components/Global/Product';
+import Product from "@/components/Global/Product";
 export default {
   components: { Product },
   name: "Orders"
@@ -44,7 +50,7 @@ export default {
   width: 100%;
 }
 .BTN-GROUP {
-    width: 33.3444444%
+  width: 33.3444444%;
 }
 </style>
 
