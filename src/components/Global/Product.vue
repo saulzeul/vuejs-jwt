@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="card">
-      <div class="card-text">
-        <p>HAMBURGUESA SENCILLA <br> $40</p>
-      </div>
       <img
         class="card-product-image"
         src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
       >
+      <div class="card-text">
+        <p>HAMBURGUESA SENCILLA</p>
+      </div>
     </div>
   </div>
 </template>
@@ -16,21 +16,26 @@
   max-width: 100%;
   height: auto;
   background: white;
-  padding: 5px;
   margin: 0px;
   border-radius: 4px;
+  position: relative;
 }
 .card-product-image {
   width: 100%;
 }
-
 .card-text {
-  background: #ff5566;
+  background: #00000085;
   color: white;
   text-align: center;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
-.card-text > p {
-  margin: 0px;
+.price {
+  margin: auto;
+  width: 100%;
+  font-size: xx-large;
 }
 </style>
 
