@@ -3,13 +3,13 @@
     <el-row>
       <el-col :span="24">
         <el-button-group>
-          <router-link to="/orders">
+          <router-link to="/orders/foods">
             <el-button type="primary">PEDIDOS</el-button>
           </router-link>
-          <router-link to="/orders">
+          <router-link to="/menu">
             <el-button type="danger"><icon icon="th-large"/></el-button>
           </router-link>          
-          <router-link to="/">
+          <router-link to="/commands">
             <el-button type="warning">COMANDAS</el-button>
           </router-link>
         </el-button-group>
@@ -17,8 +17,3 @@
     </el-row>
   </div>
 </template>
-<script>
-export default {};
-</script>
-<style lang="scss" scoped>
-</style>

@@ -1,21 +1,11 @@
 <template>
   <div>
     <el-row :gutter="10">
-      <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-        <Product :nameItem="nameItem" :urlImage="urlImage"/>
-      </el-col>
-      <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-        <Product :nameItem="nameItem" :urlImage="urlImage"/>
-      </el-col>
-      <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-        <Product :nameItem="nameItem" :urlImage="urlImage"/>
-      </el-col>
-      <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-        <Product :nameItem="nameItem" :urlImage="urlImage"/>
-      </el-col>
-      <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-        <Product :nameItem="nameItem" :urlImage="urlImage"/>
-      </el-col>
+      <div v-for="(product, index) in products" :key="index">
+        <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
+          <Product :nameItem="product.name.first" :urlImage="product.picture.medium"/>
+        </el-col>
+      </div>
     </el-row>
   </div>
 </template>
@@ -25,9 +15,19 @@ export default {
   components: { Product },
   data() {
     return {
-      nameItem: "Hamburguesa sencilla",
-      urlImage: "https://via.placeholder.com/150/24f355"
+      products: []
     };
+  },
+  created: function () {
+    this.getProducts();
+  },
+  methods: {
+    getProducts: function () {
+      this.$http.get('https://randomuser.me/api/?results=10')
+        .then((response) => {
+          this.products = response.data.results
+        })
+    }
+    }
   }
-};
 </script>
