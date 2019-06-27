@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="24">
         <el-button-group>
-          <router-link to="/orders/foods">
+          <router-link to="/orders">
             <el-button type="primary">PEDIDOS</el-button>
           </router-link>
           <router-link to="/menu">

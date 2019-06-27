@@ -4,35 +4,55 @@
       <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
         <el-row>
           <el-col :span="24">
-            <el-button class="BTN" type="primary">EDITAR PEDIDO</el-button>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="24">
-            <el-button class="BTN" type="success">COBRAR</el-button>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="24">
             <el-button-group class="BTN">
-              <el-button class="BTN-GROUP" type="danger">ALIMENTOS</el-button>
-              <el-button class="BTN-GROUP" type="warning">BEBIDAS</el-button>
-              <el-button class="BTN-GROUP" type="primary">OTROS</el-button>
+              <el-button class="BTN-GROUP" type="danger" v-on:click="getProducts(2)">ALIMENTOS</el-button>
+              <el-button class="BTN-GROUP" type="warning" v-on:click="getProducts(4)">BEBIDAS</el-button>
+              <el-button class="BTN-GROUP" type="primary" v-on:click="getProducts(6)">OTROS</el-button>
             </el-button-group>
           </el-col>
         </el-row>
         <el-row :gutter="10">
-          <el-col :span="24">
-            <router-view></router-view>
-          </el-col>
+          <div v-for="(product, index) in products" :key="index">
+            <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
+              <Product :nameItem="product.name.first" :urlImage="product.picture.medium"/>
+            </el-col>
+          </div>
         </el-row>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-card shadow="never">
+          <div slot="header">
+            <el-row type="flex"  justify="space-between" style="align-items: center;">
+              <div>TICKET</div>
+            <el-button type="danger" size="small">CANCELAR</el-button>
+            </el-row>
+          </div>
+          <div></div>
+        </el-card>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
+import Product from "@/components/Global/Product";
 export default {
   name: "Orders",
+  components: { Product },
+  data() {
+    return {
+      products: []
+    };
+  },
+  created: function() {
+    this.getProducts(2);
+  },
+  methods: {
+    getProducts: function(category) {
+      this.$http.get(`https://randomuser.me/api/?results=`+ category).then(response => {
+        this.products = response.data.results;
+      });
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
