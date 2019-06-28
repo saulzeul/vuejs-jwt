@@ -15,10 +15,9 @@
 </template>
 <script>
 import AppHeader from "@/components/Layout/AppHeader.vue";
-import breadcrumb from "@/components/Global/Breadcrumb.vue";
 import AppFooter from "@/components/Layout/AppFooter.vue";
 export default {
-  components: { AppHeader,breadcrumb, AppFooter }
+  components: { AppHeader, AppFooter }
 };
 </script>
 <style lang="scss">

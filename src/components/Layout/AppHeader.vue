@@ -2,7 +2,7 @@
     <div>
         <el-row :gutter="10">
             <el-col :span="14" align="left">
-                {{ empresa }}
+                {{this.$route.meta}}
             </el-col>
             <el-col :span="10" align="right">
                 <el-row>
@@ -15,11 +15,6 @@
 </template>
 <script>
 export default {
-    data () {
-        return {
-            empresa: 'WISH BURGER'
-        }
-    },
     methods: {
         showAside () {
             this.$store.dispatch('showAside');
