@@ -47,8 +47,8 @@ export default {
     this.getProducts(8);
   },
   methods: {
-    getProducts: function(category) {
-      this.$http
+    getProducts: async function(category) {
+      await this.$http
         .get(`https://randomuser.me/api/?results=` + category)
         .then(response => {
           this.products = response.data.results;
