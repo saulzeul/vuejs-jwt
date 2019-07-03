@@ -27,17 +27,21 @@
               <el-button type="danger" size="small">CANCELAR</el-button>
             </el-row>
           </div>
-          <div></div>
+          <div>
+            <ListItem/>
+          </div>
         </el-card>
+        <el-button class="btn-full" type="success">COBRAR</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
 import Product from "@/components/Global/Product";
+import ListItem from "@/components/Global/ListItem";
 export default {
   name: "Orders",
-  components: { Product },
+  components: { Product, ListItem },
   data() {
     return {
       products: []
@@ -69,6 +73,9 @@ export default {
   height: 580px;
 }
 .BTN {
+  width: 100%;
+}
+.btn-full {
   width: 100%;
 }
 .BTN-GROUP {

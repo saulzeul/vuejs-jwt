@@ -3,6 +3,6 @@ const orders = {
     path: '/orders', 
     name: 'orders',
     component: Orders,
-    meta: 'PEDIDOS',
+    meta: 'Pedidos',
 }
 export default orders

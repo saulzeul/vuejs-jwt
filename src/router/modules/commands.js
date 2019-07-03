@@ -3,6 +3,6 @@ const commands = {
     path: '/commands',
     name: 'commands',
     component: Commands,
-    meta: 'COMANDAS'
+    meta: 'Comandas'
 }
 export default commands
