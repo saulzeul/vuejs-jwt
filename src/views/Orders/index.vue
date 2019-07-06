@@ -14,7 +14,7 @@
         <el-row :gutter="10" class="container-products">
           <div v-for="(product, index) in products" :key="index">
             <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-              <Product :nameItem="product.name.first" :urlImage="product.picture.medium"/>
+              <Product :nameItem="product.name.first" :urlImage="product.picture.medium" @click.native="consola(product.location.postcode)"/>
             </el-col>
           </div>
         </el-row>
@@ -28,7 +28,10 @@
             </el-row>
           </div>
           <div>
-            <ListItem/>
+            <div v-for="(productTicket, index) in productsTicket" :key="index">
+              <ListItem :nameProduct="productTicket.nameProduct" :price="productTicket.price"/>
+              <br>
+            </div>
           </div>
         </el-card>
         <el-button class="btn-full" type="success">COBRAR</el-button>
@@ -44,7 +47,13 @@ export default {
   components: { Product, ListItem },
   data() {
     return {
-      products: []
+      products: [],
+      productsTicket: [
+        {"id": 1, "nameProduct": "Hamburguesa sencilla", "price": 45},
+        {"id": 2, "nameProduct": "Malteada chocolate", "price": 24},
+        {"id": 2, "nameProduct": "Torta lomo", "price": 32},
+      ]
+
     };
   },
   created: function() {
@@ -57,6 +66,9 @@ export default {
         .then(response => {
           this.products = response.data.results;
         });
+    },
+    consola(product) {
+      alert(product)
     }
   }
 };
