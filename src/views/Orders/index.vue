@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row :gutter="10">
-      <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
+      <el-col :xs="24" :sm="24" :md="13" :lg="16" :xl="16">
         <el-row>
           <el-col :span="24">
             <el-button-group class="BTN">
@@ -19,7 +19,7 @@
           </div>
         </el-row>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+      <el-col :xs="24" :sm="24" :md="11" :lg="8" :xl="8">
         <el-card shadow="never">
           <div slot="header">
             <el-row type="flex" justify="space-between" style="align-items: center;">

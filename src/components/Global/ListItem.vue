@@ -1,20 +1,20 @@
 <template>
   <div class="listItem container-grid">
-    <div class="nameProduct">
-      <span>{{nameProduct}}</span>
+    <div class="nameProduct">{{nameProduct}}</div>
+    <div class="price">${{price}}</div>
+    <div class="option">
+      <el-button-group>
+        <el-button type="primary" size="mini">
+          <icon icon="pencil-alt" />
+        </el-button>
+        <el-button type="warning" size="mini">
+          <icon icon="clone" />
+        </el-button>
+        <el-button type="danger" size="mini">
+          <icon icon="trash-alt" />
+        </el-button>
+      </el-button-group>
     </div>
-    <div class="group-button">
-      <el-button type="primary" size="small">
-        <icon icon="pencil-alt" />
-      </el-button>
-      <el-button type="warning" size="small">
-        <icon icon="clone" />
-      </el-button>
-      <el-button type="danger" size="small">
-        <icon icon="trash-alt" />
-      </el-button>
-    </div>
-    <div class="price">${{ price }}</div>
   </div>
 </template>
 <script>
@@ -31,44 +31,43 @@ export default {
 }
 .container-grid {
   display: grid;
-  grid-gap: 5px;
-  grid-template-areas:
-    ". group-button group-button group-button"
-    "nameProduct nameProduct nameProduct price";
-  grid-template-rows: 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "nameProduct price option";
+  grid-template-rows: auto;
+  grid-template-columns: 50% 15% 35%;
   padding: 10px 10px 10px 0px;
 }
 .nameProduct {
   grid-area: nameProduct;
   justify-self: center;
   align-self: center;
-  font-size: medium;
+  font-size: smaller;
   font-weight: 600;
-}
-.clone {
-  grid-area: clone;
-  justify-self: end;
-}
-.edit {
-  grid-area: edit;
-  justify-self: end;
-}
-.group-button {
-  grid-area: group-button;
-  justify-self: end;
 }
 .price {
   grid-area: price;
   justify-self: center;
   align-self: center;
-  font-size: medium;
+  font-size: large;
   font-weight: 600;
   width: 100%;
-  background: #b5b5b5;
+  height: 100%;
+  background: white;
   padding: 5px 0px 0px 0px;
   border-radius: 4px;
   text-align: center;
+}
+.option {
+  grid-area: option;
+  justify-self: right;
+  align-self: center;
+}
+.icon-menu {
+  width: 20px;
+  height: 20px;
+  background: #409eff;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
 }
 </style>
 
