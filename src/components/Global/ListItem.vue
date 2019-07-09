@@ -32,7 +32,7 @@ export default {
   props: ["nameProduct", "price", "description"],
   methods: {
     editItem () {
-      alert('Holamundo')
+      alert(this.nameProduct)
     }
   },
 };

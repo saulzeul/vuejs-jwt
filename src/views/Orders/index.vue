@@ -14,7 +14,11 @@
         <el-row :gutter="10" class="container-products">
           <div v-for="(product, index) in products" :key="index">
             <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="3">
-              <Product :nameItem="product.name.first" :urlImage="product.picture.medium" @click.native="consola(product.location.postcode)"/>
+              <Product
+                :nameItem="product.name.first"
+                :urlImage="product.picture.medium"
+                @click.native="consola(product.location.postcode)"
+              />
             </el-col>
           </div>
         </el-row>
@@ -24,22 +28,28 @@
           <div slot="header">
             <el-row type="flex" justify="space-between" style="align-items: center;">
               <div>TICKET</div>
-              <el-button type="danger" size="small">CANCELAR</el-button>
+              <el-button v-if="ticket" type="danger" size="small">CANCELAR</el-button>
             </el-row>
           </div>
-          <div>
-            <div v-for="(productTicket, index) in productsTicket" :key="index">
-              <ListItem :nameProduct="productTicket.nameProduct" :price="productTicket.price"/>
-              <br>
+          <template v-if="ticket == false">
+            <div>
+              <h3 style="text-align:center;">Ningun producto seleccionado</h3>
             </div>
-          </div>
+          </template>
+          <template v-if="ticket == true">
+            <div v-for="(productTicket, index) in productsTicket" :key="index">
+              <ListItem :nameProduct="productTicket.nameProduct" :price="productTicket.price" />
+              <br />
+            </div>
+          </template>
         </el-card>
-        <el-button class="btn-full" type="success">COBRAR</el-button>
+        <el-button class="btn-full" :disabled="!ticket"  type="success">COBRAR</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 import Product from "@/components/Global/Product";
 import ListItem from "@/components/Global/ListItem";
 export default {
@@ -48,14 +58,12 @@ export default {
   data() {
     return {
       products: [],
-      productsTicket: [
-        {"id": 1, "nameProduct": "Hamburguesa sencilla", "price": 45},
-        {"id": 2, "nameProduct": "Malteada chocolate", "price": 24},
-        {"id": 2, "nameProduct": "Torta lomo", "price": 32},
-      ]
-
     };
   },
+  computed: mapState({
+    ticket: state => state.order.ticket,
+    productsTicket: state => state.order.productsTicket
+  }),
   created: function() {
     this.getProducts(8);
   },
@@ -68,7 +76,7 @@ export default {
         });
     },
     consola(product) {
-      alert(product)
+      alert(product);
     }
   }
 };
