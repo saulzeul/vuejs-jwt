@@ -4,22 +4,37 @@
     <div class="price">${{price}}</div>
     <div class="option">
       <el-button-group>
-        <el-button type="primary" size="mini">
-          <icon icon="pencil-alt" />
+        <el-button @click="editItem" type="primary" size="mini">
+          <icon icon="pencil-alt"/>
         </el-button>
         <el-button type="warning" size="mini">
-          <icon icon="clone" />
+          <icon icon="clone"/>
         </el-button>
         <el-button type="danger" size="mini">
-          <icon icon="trash-alt" />
+          <icon icon="trash-alt"/>
         </el-button>
       </el-button-group>
+    </div>
+    <div class="option-dropdown">
+      <el-dropdown>
+        <el-button type="primary" size="mini">
+          <icon icon="ellipsis-v"/>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item><div @click="editItem">Editar</div></el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ["nameProduct", "price", "description"]
+  props: ["nameProduct", "price", "description"],
+  methods: {
+    editItem () {
+      alert('Holamundo')
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -68,6 +83,29 @@ export default {
   color: white;
   padding: 5px;
   border-radius: 20px;
+}
+
+@media screen and (min-width: 668px) {
+  .option-dropdown {
+    display: none;
+  }
+}
+@media screen and (max-width: 667px) {
+  .container-grid {
+    display: grid;
+    grid-template-areas: "nameProduct price option";
+    grid-template-rows: auto;
+    grid-template-columns: 65% 15% 20%;
+    padding: 10px 10px 10px 0px;
+  }
+  .option {
+    display: none;
+  }
+  .option-dropdown {
+    grid-area: option;
+    justify-self: right;
+    align-self: center;
+  }
 }
 </style>
 
