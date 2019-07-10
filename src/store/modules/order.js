@@ -6,10 +6,15 @@ const order = {
             { id: 2, nameProduct: "Malteada chocolate", price: 24.0 },
             { id: 3, nameProduct: "Torta lomo", price: 32.0 },
             { id: 4, nameProduct: "Torta lomo", price: 34.0 }
+        ],
+        test: [
+
         ]
     },
     mutations: {
-
+        addProductToTicket (state, product) {
+            state.test = product
+        }
 
     },
     actions: {

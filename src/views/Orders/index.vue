@@ -17,7 +17,7 @@
               <Product
                 :nameItem="product.name.first"
                 :urlImage="product.picture.medium"
-                @click.native="consola(product.location.postcode)"
+                @click.native="addProduct(JSON.stringify(product))"
               />
             </el-col>
           </div>
@@ -34,6 +34,7 @@
           <template v-if="ticket == false">
             <div>
               <h3 style="text-align:center;">Ningun producto seleccionado</h3>
+              {{ test }}
             </div>
           </template>
           <template v-if="ticket == true">
@@ -43,13 +44,13 @@
             </div>
           </template>
         </el-card>
-        <el-button class="btn-full" :disabled="!ticket"  type="success">COBRAR</el-button>
+        <el-button class="btn-full" :disabled="!ticket" type="success">COBRAR</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 import Product from "@/components/Global/Product";
 import ListItem from "@/components/Global/ListItem";
 export default {
@@ -57,12 +58,13 @@ export default {
   components: { Product, ListItem },
   data() {
     return {
-      products: [],
+      products: []
     };
   },
   computed: mapState({
     ticket: state => state.order.ticket,
-    productsTicket: state => state.order.productsTicket
+    productsTicket: state => state.order.productsTicket,
+    test: state => state.order.test
   }),
   created: function() {
     this.getProducts(8);
@@ -75,8 +77,9 @@ export default {
           this.products = response.data.results;
         });
     },
-    consola(product) {
-      alert(product);
+    addProduct(product) {
+      this.$store.commit('addProductToTicket', JSON.parse(product))
+      console.log(JSON.parse(product));
     }
   }
 };
