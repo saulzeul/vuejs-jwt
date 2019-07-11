@@ -28,17 +28,17 @@
           <div slot="header">
             <el-row type="flex" justify="space-between" style="align-items: center;">
               <div>TICKET</div>
-              <el-button v-if="ticket" type="danger" size="small">CANCELAR</el-button>
+              <el-button v-if="ticket" type="danger" size="small" @click="clearAllProductsTicket">CANCELAR</el-button>
             </el-row>
           </div>
           <template v-if="ticket == false">
             <div>
-              <h3 style="text-align:center;">Ningun producto seleccionado</h3>
-              {{ test }}
+              <h3 style="text-align:center;">Ningun producto seleccionado</h3>              
             </div>
           </template>
           <template v-if="ticket == true">
-            <div v-for="(productTicket, index) in productsTicket" :key="index">
+            {{ test }}
+            <div v-for="(productTicket, index) in productsTicket" :key="index">              
               <ListItem :nameProduct="productTicket.nameProduct" :price="productTicket.price" />
               <br />
             </div>
@@ -79,7 +79,9 @@ export default {
     },
     addProduct(product) {
       this.$store.commit('addProductToTicket', JSON.parse(product))
-      console.log(JSON.parse(product));
+    },
+    clearAllProductsTicket() {
+      this.$store.commit('clearAllProductsTicket')
     }
   }
 };

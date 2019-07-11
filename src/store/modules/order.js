@@ -13,8 +13,15 @@ const order = {
     },
     mutations: {
         addProductToTicket (state, product) {
-            state.test = product
+            state.test.push(product)
+            state.ticket = true
+
+        },
+        clearAllProductsTicket (state) {
+            state.test = []
+            state.ticket = false
         }
+
 
     },
     actions: {
