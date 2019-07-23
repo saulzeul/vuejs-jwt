@@ -12,20 +12,31 @@ const order = {
         ]
     },
     mutations: {
-        addProductToTicket (state, product) {
+        ADD_PRODUCT_TICKET (state, product) {
             state.test.push(product)
             state.ticket = true
-
         },
-        clearAllProductsTicket (state) {
+        EDIT_PRODUCT_TICKET (state, product) {
+            state.test.push(product)
+            state.ticket = true
+        },
+        REMOVE_PRODUCT_TICKET (state, product) {
+            state.test.push(product)
+            state.ticket = true
+        },                
+        REMOVE_ALL_PRODUCTS_TICKET (state) {
             state.test = []
             state.ticket = false
         }
 
-
     },
     actions: {
-
+        addProductToTicket({commit}, product) {
+            commit('ADD_PRODUCT_TICKET', product)
+        },
+        clearAllProductsTicket({commit}) {
+            commit('REMOVE_ALL_PRODUCTS_TICKET')
+        }
     },
     getters: {
 

@@ -78,10 +78,10 @@ export default {
         });
     },
     addProduct(product) {
-      this.$store.commit('addProductToTicket', JSON.parse(product))
+      this.$store.dispatch('addProductToTicket', JSON.parse(product))
     },
     clearAllProductsTicket() {
-      this.$store.commit('clearAllProductsTicket')
+      this.$store.dispatch('clearAllProductsTicket')
     }
   }
 };
