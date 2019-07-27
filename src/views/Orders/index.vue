@@ -37,7 +37,9 @@
             </div>
           </template>
           <template v-if="ticket == true">
-            {{ test }}
+            <div v-for="(item, i) in test" :key="'A'+ i">
+              {{item.gender}}
+            </div>
             <div v-for="(productTicket, index) in productsTicket" :key="index">              
               <ListItem :nameProduct="productTicket.nameProduct" :price="productTicket.price" />
               <br />
