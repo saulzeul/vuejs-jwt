@@ -8,7 +8,6 @@ import Menu from './modules/menu'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   routes: [
     Orders,
     Commands,
